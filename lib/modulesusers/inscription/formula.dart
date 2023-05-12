@@ -16,9 +16,11 @@ class _registrationState extends State<registration> {
   TextEditingController lname = TextEditingController();
 
   TextEditingController email = TextEditingController();
-
+  TextEditingController IdController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
   TextEditingController prenom = TextEditingController();
-
+  late String selectedOption = 'A1';
+  late String selectedOption2 = 'A1';
   TextEditingController password = TextEditingController();
 
   TextEditingController nbchamb = TextEditingController();
@@ -196,7 +198,7 @@ class _registrationState extends State<registration> {
                         Row(children: [
                           Row(
                             children: [
-                              Text("Auteur:"),
+                              Text("Auteur"),
                               Switch(
                                 value: _isAuteur,
                                 onChanged: (value) {
@@ -209,7 +211,7 @@ class _registrationState extends State<registration> {
                           ),
                           Row(
                             children: [
-                              Text("Invité:"),
+                              Text("Invité"),
                               Switch(
                                 value: _isInvite,
                                 onChanged: (value) {
@@ -222,7 +224,7 @@ class _registrationState extends State<registration> {
                           ),
                           Row(
                             children: [
-                              Text("Participant:"),
+                              Text("Participant"),
                               Switch(
                                 value: _isParticipant,
                                 onChanged: (value) {
@@ -238,6 +240,106 @@ class _registrationState extends State<registration> {
                     ),
                   ),
                 ),
+                _isAuteur
+                    ? Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.grey[100],
+                              ),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'Id Papier ',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  TextFormField(
+                                    controller: IdController,
+                                    onChanged: (String value) {
+                                      print(value);
+                                    },
+                                    onFieldSubmitted: (value) {
+                                      print(value);
+                                    },
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Please enter your Id papier';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (value) {
+                                      print(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      labelText: ' Id papier ',
+                                      prefixIcon: Icon(Icons.confirmation_num),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.grey[100],
+                              ),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'title : ',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  TextFormField(
+                                    controller: titleController,
+                                    onChanged: (String value) {
+                                      print(value);
+                                    },
+                                    onFieldSubmitted: (value) {
+                                      print(value);
+                                    },
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Please enter your title ';
+                                      }
+                                      return null;
+                                    },
+                                    onSaved: (value) {
+                                      print(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      labelText: '  title  ',
+                                      prefixIcon: Icon(Icons.title),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : SizedBox.shrink(),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
@@ -375,6 +477,55 @@ class _registrationState extends State<registration> {
                       ],
                     ),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Colors.grey[100],
+                    ),
+                    child: Row(
+                      children: [
+                        const Text(
+                          'type de chamber :',
+                          style: TextStyle(fontSize: 15.0),
+                        ),
+                        const SizedBox(width: 10.0),
+                        Expanded(
+                          child: DropdownButton<String>(
+                            value: selectedOption,
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'A1',
+                                child: Text('A1'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'A2',
+                                child: Text('A2'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'A3',
+                                child: Text('A3'),
+                              ),
+                            ],
+                            onChanged: (value) {
+                              setState(() {
+                                selectedOption = value!;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(

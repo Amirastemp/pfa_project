@@ -30,7 +30,7 @@ class _FacturePageState extends State<FacturePage> {
                   "Facture",
                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextField(
                   decoration: InputDecoration(
                     labelText: "Nom",
@@ -108,6 +108,10 @@ class _FacturePageState extends State<FacturePage> {
                     _numberOfAccompanat = int.tryParse(value) ?? 0;
                   },
                 ),
+                MaterialButton(
+                  onPressed: () {},
+                  child: Text('payé'),
+                )
               ],
             ),
           ),

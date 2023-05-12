@@ -55,6 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           TextFormField(
                             controller: cUsername,
+                            keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -65,10 +66,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return "Please enter your emil.";
-                              } /*else if (!isValiEmail(value)) {
-                                return "please enter valid email";
-                              }*/
+                                return "Please enter your email.";
+                              } else if (!value.contains('@')) {
+                                return "Please enter a valid email address.";
+                              } else {
+                                List<String> emailParts = value.split('@');
+                                String domain = emailParts[1];
+                                if (!domain.contains('.') ||
+                                    domain.endsWith('.')) {
+                                  return "Please enter a valid email address.";
+                                }
+                                List<String> domainParts = domain.split('.');
+                                String extension = domainParts[1];
+                                if (extension.length < 2 ||
+                                    extension.length > 4) {
+                                  return "Please enter a valid email address.";
+                                }
+                              }
                               return null;
                             },
                           ),

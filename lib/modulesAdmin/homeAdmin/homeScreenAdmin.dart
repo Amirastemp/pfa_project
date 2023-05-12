@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import '../session/insertsession.dart';
 
-class AdminHomePage extends StatelessWidget {
+class AdminHomePage extends StatefulWidget {
   const AdminHomePage({Key? key}) : super(key: key);
 
+  @override
+  State<AdminHomePage> createState() => _AdminHomePageState();
+}
+
+class _AdminHomePageState extends State<AdminHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +42,23 @@ class AdminHomePage extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.dashboard),
               title: Text("Dashboard"),
+              onTap: () {
+                setState() {}
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.calendar_view_month),
+              title: Text("session"),
               onTap: () {},
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text("Settings"),
+              leading: Icon(Icons.calendar_today),
+              title: Text("programme"),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.calendar_view_month),
+              title: Text("Setting"),
               onTap: () {},
             ),
           ],
