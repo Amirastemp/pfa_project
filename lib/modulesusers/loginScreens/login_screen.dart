@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: const Center(
                                 child: Center(
                                   child: Text(
-                                    "Login",
+                                    "Sign in ",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 22,

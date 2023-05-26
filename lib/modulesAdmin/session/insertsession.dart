@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:pfa_project/modulesAdmin/programme/pragramme.dart';
 
@@ -238,7 +239,7 @@ class _SessionInsertState extends State<SessionInsert> {
       child: Row(
         children: [
           const Text(
-            'time Session :',
+            'date Session :',
             style: TextStyle(fontSize: 15.0),
           ),
           const SizedBox(width: 10.0),
@@ -262,14 +263,6 @@ class _SessionInsertState extends State<SessionInsert> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: const Text(
-          'Session',
-          style: TextStyle(fontSize: 20.0),
-        ),
-        centerTitle: true,
-      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -289,6 +282,14 @@ class _SessionInsertState extends State<SessionInsert> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+                const Text(
+                  'Insert Session ',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
                 buildIdSessionFormField(),
                 const SizedBox(height: 20.0),
                 buildThemeSessionDropdown(),
@@ -306,6 +307,10 @@ class _SessionInsertState extends State<SessionInsert> {
                 ElevatedButton(
                   onPressed: () {},
                   child: Text('add session'),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.purple),
+                  ),
                 ),
               ],
             ),

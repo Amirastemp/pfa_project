@@ -116,6 +116,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       }
                     }
                   : null,
+              style: ElevatedButton.styleFrom(
+                primary: Colors.purple,
+              ),
               child: Text('Continue'),
             ),
             SizedBox(height: 30),

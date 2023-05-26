@@ -20,11 +20,6 @@ class _EventFormState extends State<EventForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.purple,
-        title: Text('Event Programme'),
-      ),
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
@@ -45,6 +40,16 @@ class _EventFormState extends State<EventForm> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: const Text(
+                      'Insert Event ',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   Container(
                     color: Colors.grey[100],
                     child: TextFormField(

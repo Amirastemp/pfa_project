@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   final _ageController = TextEditingController();
   final _emailController = TextEditingController();
   final _numRoomsController = TextEditingController();
-
+  final telController = TextEditingController();
   @override
   void dispose() {
     _firstNameController.dispose();
@@ -30,7 +31,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: const Text('Registration Form'),
+        title: const Text('Registration for companions'),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -87,6 +88,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           },
                           decoration: const InputDecoration(
                             labelText: 'Last Name',
+                            prefixIcon: Icon(Icons.person),
                             border: OutlineInputBorder(),
                           ),
                         ),
@@ -161,6 +163,59 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     SizedBox(
                       height: 10.0,
                     ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.grey[100],
+                        ),
+                        child: Column(
+                          children: [
+                            const Text(
+                              'number phone: ',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10.0,
+                            ),
+                            TextFormField(
+                              controller: telController,
+                              keyboardType: TextInputType.number,
+                              onChanged: (String value) {
+                                print(value);
+                              },
+                              onFieldSubmitted: (value) {
+                                print(value);
+                              },
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter your phone number ';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                print(value);
+                              },
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(19),
+                              ],
+                              decoration: InputDecoration(
+                                labelText: 'num _tel:',
+                                prefixIcon: Icon(Icons.phone),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -189,6 +244,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                 _numRoomsController.clear();
                               }
                             },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors
+                                  .purple, // Set the background color to purple
+                            ),
                             child: Text('Submit'),
                           ),
                         ),

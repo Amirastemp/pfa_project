@@ -27,19 +27,6 @@ class _InsertState extends State<Insert> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: Colors.purple.shade50,
-        backgroundColor: Colors.purple,
-        centerTitle: true,
-        title: const Text(
-          'Insert',
-          style: TextStyle(
-            fontSize: 30.0,
-            color: Colors.white,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -55,6 +42,16 @@ class _InsertState extends State<Insert> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Center(
+                  child: const Text(
+                    'Insert users',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Container(
@@ -300,6 +297,85 @@ class _InsertState extends State<Insert> {
                                     decoration: const InputDecoration(
                                       labelText: '  title  ',
                                       prefixIcon: Icon(Icons.title),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.grey[100],
+                              ),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'Room session  : ',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Container(
+                                    width: 100.0,
+                                    height: 65.0,
+                                    child: TextField(
+                                      controller: nbchamb,
+                                      keyboardType: TextInputType.number,
+                                      maxLength: 2,
+                                      decoration: const InputDecoration(
+                                        hintText: 'number',
+                                        prefixIcon:
+                                            Icon(Icons.format_list_numbered),
+                                        border: OutlineInputBorder(),
+                                      ),
+                                      onChanged: (text) {},
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                color: Colors.grey[100],
+                              ),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    'Id session : ',
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Container(
+                                    width: 100.0,
+                                    height: 65.0,
+                                    child: TextField(
+                                      controller: nbchamb,
+                                      keyboardType: TextInputType.number,
+                                      decoration: const InputDecoration(
+                                        hintText: 'number',
+                                        prefixIcon:
+                                            Icon(Icons.format_list_numbered),
+                                        border: OutlineInputBorder(),
+                                      ),
+                                      onChanged: (text) {},
                                     ),
                                   ),
                                 ],

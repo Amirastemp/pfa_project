@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var currentPage = DrawerSection.dashboard;
+  var currentPage = DrawerSection.contacts;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
     var container;
 
     if (currentPage == DrawerSection.dashboard) {
-      container = ConferenceDashboard();
+      container = DashboardScreen();
     } else if (currentPage == DrawerSection.contacts) {
-      container = Profile();
+      container = ProfilePage();
     } else if (currentPage == DrawerSection.events) {
       container = events();
     } else if (currentPage == DrawerSection.payment) {
@@ -53,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body: container,
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: const Text("welcome"),
         actions: [
           IconButton(
             onPressed: () {
@@ -135,8 +134,6 @@ class MyDrawerList extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          menuItem(1, "Dashboard", Icons.dashboard_outlined,
-              currentPage == DrawerSection.dashboard, setPage),
           menuItem(2, "Profile", Icons.people_alt_outlined,
               currentPage == DrawerSection.contacts, setPage),
           menuItem(3, "Events", Icons.event,

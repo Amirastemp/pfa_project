@@ -98,7 +98,7 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'Nom : ',
+                          'Last name * ',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -146,7 +146,7 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'prénom : ',
+                          'First name *',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -172,7 +172,7 @@ class _registrationState extends State<registration> {
                             print(value);
                           },
                           decoration: const InputDecoration(
-                            labelText: '  first name  ',
+                            labelText: 'first name',
                             prefixIcon: Icon(Icons.person),
                           ),
                         ),
@@ -192,13 +192,13 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'who me:',
+                          'Participant type *',
                           style: TextStyle(fontSize: 20.0),
                         ),
                         Row(children: [
                           Row(
                             children: [
-                              Text("Auteur"),
+                              Text("author"),
                               Switch(
                                 value: _isAuteur,
                                 onChanged: (value) {
@@ -211,7 +211,7 @@ class _registrationState extends State<registration> {
                           ),
                           Row(
                             children: [
-                              Text("Invité"),
+                              Text("Guest "),
                               Switch(
                                 value: _isInvite,
                                 onChanged: (value) {
@@ -255,7 +255,7 @@ class _registrationState extends State<registration> {
                               child: Column(
                                 children: [
                                   const Text(
-                                    'Id Papier ',
+                                    'Paper ID *',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                     ),
@@ -273,7 +273,7 @@ class _registrationState extends State<registration> {
                                     },
                                     validator: (value) {
                                       if (value!.isEmpty) {
-                                        return 'Please enter your Id papier';
+                                        return 'Please enter your Paper ID';
                                       }
                                       return null;
                                     },
@@ -281,7 +281,7 @@ class _registrationState extends State<registration> {
                                       print(value);
                                     },
                                     decoration: const InputDecoration(
-                                      labelText: ' Id papier ',
+                                      labelText: ' Paper ID',
                                       prefixIcon: Icon(Icons.confirmation_num),
                                     ),
                                   ),
@@ -303,7 +303,7 @@ class _registrationState extends State<registration> {
                               child: Column(
                                 children: [
                                   const Text(
-                                    'title : ',
+                                    'title * ',
                                     style: TextStyle(
                                       fontSize: 20.0,
                                     ),
@@ -329,7 +329,7 @@ class _registrationState extends State<registration> {
                                       print(value);
                                     },
                                     decoration: const InputDecoration(
-                                      labelText: '  title  ',
+                                      labelText: 'title ',
                                       prefixIcon: Icon(Icons.title),
                                     ),
                                   ),
@@ -352,7 +352,7 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'Adresse Mail : ',
+                          'Mail *',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -373,7 +373,7 @@ class _registrationState extends State<registration> {
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.email_outlined),
-                            hintText: 'Email',
+                            hintText: 'E-mail',
                           ),
                         ),
                       ],
@@ -394,7 +394,7 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'Password : ',
+                          'Password * ',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -414,7 +414,7 @@ class _registrationState extends State<registration> {
                           },
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Please enter your first name';
+                              return 'Please enter your passeword';
                             }
                             return null;
                           },
@@ -422,7 +422,7 @@ class _registrationState extends State<registration> {
                             print(value);
                           },
                           decoration: InputDecoration(
-                            labelText: 'password :',
+                            labelText: 'Password ',
                             prefixIcon: Icon(Icons.password_rounded),
                             suffixIcon: IconButton(
                                 icon: isPassword
@@ -451,7 +451,7 @@ class _registrationState extends State<registration> {
                     child: Column(
                       children: [
                         const Text(
-                          'Nomber de chambre : ',
+                          'Room Number *',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -467,7 +467,7 @@ class _registrationState extends State<registration> {
                             keyboardType: TextInputType.number,
                             maxLength: 1,
                             decoration: const InputDecoration(
-                              hintText: 'number',
+                              hintText: 'room number',
                               prefixIcon: Icon(Icons.format_list_numbered),
                               border: OutlineInputBorder(),
                             ),
@@ -492,7 +492,7 @@ class _registrationState extends State<registration> {
                     child: Row(
                       children: [
                         const Text(
-                          'type de chamber :',
+                          'Room type',
                           style: TextStyle(fontSize: 15.0),
                         ),
                         const SizedBox(width: 10.0),
@@ -566,7 +566,7 @@ class _registrationState extends State<registration> {
                         Column(
                           children: [
                             const Text(
-                              'Nomber d\'accompagne :',
+                              'Number of companions *',
                               style: TextStyle(
                                 fontSize: 20.0,
                               ),
@@ -582,7 +582,7 @@ class _registrationState extends State<registration> {
                                 keyboardType: TextInputType.number,
                                 maxLength: 1,
                                 decoration: const InputDecoration(
-                                  hintText: 'number',
+                                  hintText: 'number of companions',
                                   prefixIcon: Icon(Icons.format_list_numbered),
                                   border: OutlineInputBorder(),
                                 ),
@@ -638,7 +638,7 @@ class _registrationState extends State<registration> {
                                     builder: (context) => LoginScreen()));
                           },
                           child: const Text(
-                            'login',
+                            'Sign in ',
                             style: TextStyle(color: Colors.purple),
                           ),
                         ),
