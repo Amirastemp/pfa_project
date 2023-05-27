@@ -61,7 +61,7 @@ class _EventListScreenState extends State<EventListScreen> {
   }
 
   Future<void> _fetchEvents() async {
-    final response = await http.get(Uri.parse('http://your-nestjs-backend-url/events'));
+    final response = await http.get(Uri.parse('http://localhost:3000/getprogramme/programme/programme'));
     if (response.statusCode == 200) {
       final List<dynamic> jsonData = json.decode(response.body);
       setState(() {

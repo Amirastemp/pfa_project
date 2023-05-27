@@ -21,15 +21,15 @@ class _FacturePageState extends State<FacturePage> {
     double totalCost = 0.0;
 
     if (_isAuteur) {
-      totalCost += 200.0;
+      totalCost += 60.0;
     }
 
     if (_isInvite) {
-      totalCost += 100.0;
+      totalCost += 40.0;
     }
 
     if (_isParticipant) {
-      totalCost += 50.0;
+      totalCost += 80.0;
     }
 
     totalCost += _numberOfRooms * 150.0;
@@ -44,11 +44,11 @@ class _FacturePageState extends State<FacturePage> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Champs obligatoires manquants'),
-            content: Text('Veuillez remplir tous les champs obligatoires.'),
+            title: Text('Missing required fields'),
+            content: Text('Please fill in all required fields.'),
             actions: <Widget>[
               TextButton(
-                child: Text('Fermer'),
+                child: Text('Close'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -66,11 +66,11 @@ class _FacturePageState extends State<FacturePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Facture'),
-          content: Text('Le total à payer est $totalCost €'),
+          title: Text('Invoice'),
+          content: Text('the total amount is $totalCost dt'),
           actions: <Widget>[
             TextButton(
-              child: Text('Fermer'),
+              child: Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -103,7 +103,7 @@ class _FacturePageState extends State<FacturePage> {
             children: [
               Center(
                 child: Text(
-                  "Facture",
+                  "invoice",
                   style: TextStyle(
                       fontSize: 24.0,
                       color: Colors.white,
@@ -116,8 +116,8 @@ class _FacturePageState extends State<FacturePage> {
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
                   decoration: InputDecoration(
-                    labelText: "Nom*",
-                    hintText: "Saisissez votre nom",
+                    labelText: "last name*",
+                    hintText: "Enter your last name ",
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -132,8 +132,8 @@ class _FacturePageState extends State<FacturePage> {
                 color: Colors.grey[200],
                 child: TextField(
                   decoration: InputDecoration(
-                    labelText: "Prénom*",
-                    hintText: "Saisissez votre prénom",
+                    labelText: "First Name*",
+                    hintText: "enter your first name ",
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -146,7 +146,7 @@ class _FacturePageState extends State<FacturePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Je suis :"),
+                  Text("Titel*"),
                   Checkbox(
                     value: _isAuteur,
                     onChanged: (value) {
@@ -155,7 +155,7 @@ class _FacturePageState extends State<FacturePage> {
                       });
                     },
                   ),
-                  Text("Auteur"),
+                  Text("Auther"),
                   Checkbox(
                     value: _isInvite,
                     onChanged: (value) {
@@ -164,7 +164,7 @@ class _FacturePageState extends State<FacturePage> {
                       });
                     },
                   ),
-                  Text("Invité"),
+                  Text("Guest"),
                   Checkbox(
                     value: _isParticipant,
                     onChanged: (value) {
@@ -183,7 +183,7 @@ class _FacturePageState extends State<FacturePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Nombre de chambres :"),
+                    Text("Room Number "),
                     Row(
                       children: [
                         IconButton(
@@ -216,7 +216,7 @@ class _FacturePageState extends State<FacturePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Nombre d'accompagnants :"),
+                    Text("Number of companions *"),
                     Row(
                       children: [
                         IconButton(
@@ -251,7 +251,7 @@ class _FacturePageState extends State<FacturePage> {
                   style: ElevatedButton.styleFrom(
                     primary: Colors.purple,
                   ),
-                  child: Text("Calculer la facture"),
+                  child: Text("Consult total amount"),
                 ),
               ),
               SizedBox(height: 16.0),

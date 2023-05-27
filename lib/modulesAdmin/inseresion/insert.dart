@@ -64,7 +64,7 @@ class _InsertState extends State<Insert> {
                     child: Column(
                       children: [
                         const Text(
-                          'Nom : ',
+                          'Last name* ',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -82,7 +82,7 @@ class _InsertState extends State<Insert> {
                           },
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Please enter your first name';
+                              return 'Please enter your last name';
                             }
                             return null;
                           },
@@ -112,7 +112,7 @@ class _InsertState extends State<Insert> {
                     child: Column(
                       children: [
                         const Text(
-                          'prénom : ',
+                          'First name * ',
                           style: TextStyle(
                             fontSize: 20.0,
                           ),
@@ -158,13 +158,13 @@ class _InsertState extends State<Insert> {
                     child: Column(
                       children: [
                         const Text(
-                          'who me:',
+                          'Your title *',
                           style: TextStyle(fontSize: 20.0),
                         ),
                         Row(children: [
                           Row(
                             children: [
-                              Text("Auteur"),
+                              Text("Auther"),
                               Switch(
                                 value: _isAuteur,
                                 onChanged: (value) {
@@ -177,7 +177,7 @@ class _InsertState extends State<Insert> {
                           ),
                           Row(
                             children: [
-                              Text("Invité"),
+                              Text("Guest"),
                               Switch(
                                 value: _isInvite,
                                 onChanged: (value) {
@@ -247,7 +247,7 @@ class _InsertState extends State<Insert> {
                                       print(value);
                                     },
                                     decoration: const InputDecoration(
-                                      labelText: ' Id papier ',
+                                      labelText: ' Id paper ',
                                       prefixIcon: Icon(Icons.confirmation_num),
                                     ),
                                   ),
@@ -295,7 +295,7 @@ class _InsertState extends State<Insert> {
                                       print(value);
                                     },
                                     decoration: const InputDecoration(
-                                      labelText: '  title  ',
+                                      labelText: '  title paper ',
                                       prefixIcon: Icon(Icons.title),
                                     ),
                                   ),

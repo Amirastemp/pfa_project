@@ -87,19 +87,14 @@ class _FactCardState extends State<FactCard> {
                             CardNumberInputFormatter(),
                           ],
                           decoration: InputDecoration(
-                              hintText: "Card number",
-                              suffixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  child: CardUtils.getCardIcon(cardType)),
-                              prefixIcon: cardType == CardType.Invalid
-                                  ? null
-                                  : Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 10),
-                                      child: SvgPicture.asset(
-                                          "assets/icons/card.svg"),
-                                    )),
+                            hintText: "Card number",
+                            suffixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: CardUtils.getCardIcon(cardType)),
+                            prefixIcon:
+                                SvgPicture.asset("assets/icons/card.svg"),
+                          ),
                         ),
                       ),
                       Padding(
@@ -170,10 +165,16 @@ class _FactCardState extends State<FactCard> {
                 OutlinedButton.icon(
                     onPressed: () {},
                     icon: SvgPicture.asset("assets/icons/scan.svg"),
-                    label: Text("Scan")),
+                    label: Text(
+                      "Scan",
+                      style: TextStyle(color: Colors.purple),
+                    )),
                 Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.purple,
+                    ),
                     child: Text(" Payée"),
                     onPressed: () {},
                   ),
